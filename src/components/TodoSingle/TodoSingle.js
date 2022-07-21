@@ -5,6 +5,17 @@ import {todos, todoSection} from "../../index"
 import {ENTER_KEY_CODE} from "../../utils/constants"
 import {deleteFromTodos, getByDataAttribute, updateTodos} from "../../utils/functions"
 
+export function createTodo(todoContent) {
+  const currentDate = new Date()
+
+  return {
+    id: currentDate.valueOf(),
+    title: todoContent,
+    date: currentDate,
+    selected: false
+  }
+}
+
 /**
  * @description render single todoElement and return it
  *

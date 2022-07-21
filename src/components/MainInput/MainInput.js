@@ -1,6 +1,7 @@
 import {todos} from "../../index.js"
 import {ENTER_KEY_CODE} from "../../utils/constants"
 import {getByDataAttribute, updateTodos} from "../../utils/functions"
+import {createTodo} from "../TodoSingle/TodoSingle"
 
 const input = getByDataAttribute("main-input")
 
@@ -12,16 +13,7 @@ input.addEventListener("input", e => {
 
 input.addEventListener("keydown", e => {
   if (e.key === ENTER_KEY_CODE) {
-    const currentDate = new Date()
-
-    const todoItem = {
-      id: currentDate.valueOf(),
-      title: todoContent,
-      date: currentDate,
-      selected: false
-    }
-
-    todos.push(todoItem)
+    todos.push(createTodo(todoContent))
 
     updateTodos(todos)
 
